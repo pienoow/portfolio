@@ -81,6 +81,7 @@ section {
   display: block;
   border-radius: var(--border-radius);
   box-shadow: none;
+  z-index: 0;
 }
 
 .project {
@@ -90,18 +91,20 @@ section {
 }
 
 .project::before {
-  pointer-events: none;
   content: "";
   position: absolute;
   inset: 0;
   background-color: white;
+  border-radius: var(--border-radius);
   opacity: 0;
-  transition: opacity 0.3s ease;
   z-index: 1;
+  pointer-events: none;
+  transition: opacity 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project:hover::before {
   opacity: 1;
+  box-shadow: 0 0 0 1px white;
 }
 
 .project h3 {
