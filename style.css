@@ -74,6 +74,17 @@ section {
   border-radius: var(--border-radius);
 }
 
+.project-title {
+  font-size: 2rem; /* grote titel */
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.title-description {
+  font-size: 1.2rem; /* iets grotere tekst */
+  line-height: 1.5;
+}
+
 /* Afbeeldingen in project */
 .project img {
   width: 100%;
@@ -240,6 +251,20 @@ footer {
 #project-page .project-item {
   overflow: hidden;
   border-radius: var(--border-radius);
+}
+
+#project-page .intro-container {
+  margin-bottom: -60px; /* verkleint afstand naar volgende rij */
+  padding-bottom: 20px; /* optioneel, voor visuele ruimte binnen */
+  /* Optioneel ook wat styling */
+  line-height: 1.5;
+}
+
+#project-page .intro-info {
+  margin-bottom: -60px; /* verkleint afstand naar volgende rij */
+  padding-bottom: 20px; /* optioneel, voor visuele ruimte binnen */
+  /* Optioneel ook wat styling */
+  line-height: 1.5;
 }
 
 #project-page .project-item img {
