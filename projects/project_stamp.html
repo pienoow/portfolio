@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio Thijs</title>
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+
+    <!-- Dynamische stylesheet afhankelijk van omgeving -->
+
+    <script>
+      const isLocal =
+        location.hostname === "localhost" ||
+        location.hostname === "127.0.0.1" ||
+        location.protocol === "file:";
+
+      // Bepaal of je in een submap zit (zoals /projects/)
+      const pathParts = location.pathname.split("/").filter(Boolean);
+      const isInSubFolder = pathParts.includes("projects");
+
+      // Dynamisch basispad
+      const basePath = isLocal ? (isInSubFolder ? "../" : "./") : "/portfolio/";
+
+      // Dynamische stylesheet
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = isLocal ? basePath + "style.css" : "/portfolio/style.css";
+      document.head.appendChild(link);
+
+      // Navigatielinks aanpassen
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelector("header h1 a").href = basePath + "index.html";
+        document.querySelectorAll("nav a")[0].href = basePath + "over.html";
+        document.querySelectorAll("nav a")[1].href = basePath + "contact.html";
+      });
+    </script>
+  </head>
+
+  <body id="project-page">
+    <header>
+      <h1><a href="/index.html">thijs de boer</a></h1>
+      <nav>
+        <ul>
+          <li><a href="/over.html">over mij</a></li>
+          <li><a href="/contact.html">contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="project">
+        <div class="project-layout">
+          <div class="slideshow-container slideshow-1-cols">
+            <div class="slide active">
+              <img
+                src="https://cdn.glitch.global/67c5b1dc-7259-4742-90b5-0cb73541528b/Tekengebied%201.png?v=1744877730179"
+                alt="Slide 1"
+              />
+            </div>
+            <div class="slide">
+              <img
+                src="https://cdn.glitch.global/67c5b1dc-7259-4742-90b5-0cb73541528b/Tekengebied%201%20kopie%207.png?v=1744877722111"
+                alt="Slide 2"
+              />
+            </div>
+            <div class="slide">
+              <img
+                src="https://cdn.glitch.global/67c5b1dc-7259-4742-90b5-0cb73541528b/Tekengebied%201%20kopie%205.png?v=1744877719716"
+                alt="Slide 2"
+              />
+            </div>
+            <!-- Navigatiepuntjes -->
+            <div class="dots-container"></div>
+          </div>
+
+          <div class="slideshow-container slideshow-1-cols">
+            <div class="slide active">
+              <img
+                src="https://cdn.glitch.global/67c5b1dc-7259-4742-90b5-0cb73541528b/Tekengebied%201%20kopie%202.png?v=1744877716080"
+                alt="Slide 1"
+              />
+            </div>
+            <div class="slide">
+              <img
+                src="https://cdn.glitch.global/67c5b1dc-7259-4742-90b5-0cb73541528b/Tekengebied%201%20kopie.png?v=1744877729069"
+                alt="Slide 2"
+              />
+            </div>
+            <div class="slide">
+              <img
+                src="https://cdn.glitch.global/67c5b1dc-7259-4742-90b5-0cb73541528b/Tekengebied%201%20kopie%209.png?v=1744877725352"
+                alt="Slide 2"
+              />
+            </div>
+            <!-- Navigatiepuntjes -->
+            <div class="dots-container"></div>
+          </div>
+
+          <div class="project-item span-1">
+            <div class="project-text">
+              <h2>casper's stamp rally</h2>
+              <p>
+                Overal in Japan vind je stempels. Veel Japanners zijn
+                verzamel-freaks en daarom vind je bijna bij elk station, tempel
+                of toeristische plek een eigen stempelpost om je collectie uit
+                te breiden. Zo werd het ook bij ons in de vriendengroep een
+                hobby om stempels te verzamelen. Overal moest je stempelboekje
+                mee zodat je er geen zou missen.
+              </p>
+
+              <p>
+                Voor de verjaardag van een vriend van me bedacht ik zijn eigen
+                stamp rally te maken voor plekken waar we met de vriendengroep
+                zijn geweest of vaak kwamen. Ik heb hiervoor 12 verschillende
+                stempels ontworpen, en deze uitgeprint als stickers.
+              </p>
+            </div>
+          </div>
+
+          <!-- Tekst links, grote afbeelding rechts -->
+          <div class="project-item span-1 project-text">
+            <p><strong>het ontwerp</strong></p>
+            <p>
+              De inspiratie voor de verschillende stempels is gehaald uit de
+              karakteristieken van de plekken zelf zoals de zen-tuin van de
+              Kennin Tempel of de besneeuwde pieken van de bergen in Hakuba. Het
+              kleurenschema van de stempels is gebaseerd op de kleuren van de
+              verschillende regionale JR branches (de Japanse NS) naar voorbeeld
+              van een andere online stamp rally. De stempels zijn daarna zo
+              bewerkt dat ze hetzelfde effect kregen alsof je daadwerkelijk zelf
+              de stempel heb gezet net zoals te zien is in mijn eigen
+              stempelboekje.
+            </p>
+          </div>
+          <div class="project-item span-2">
+            <img
+              src="https://cdn.glitch.global/67c5b1dc-7259-4742-90b5-0cb73541528b/Stamps%20booklet.png?v=1744876210903"
+              alt="Project image 5"
+            />
+          </div>
+
+          <div class="marquee-wrapper">
+            <div class="marquee-track">
+              <img
+                class="marquee-img"
+                src="https://cdn.glitch.global/67c5b1dc-7259-4742-90b5-0cb73541528b/Tekengebied%201%20kopie%2010.png?v=1744877726011"
+                alt=""
+              />
+              <img
+                class="marquee-img"
+                src="https://cdn.glitch.global/67c5b1dc-7259-4742-90b5-0cb73541528b/Tekengebied%201%20kopie%2011.png?v=1744877727817"
+                alt=""
+              />
+              <img
+                class="marquee-img"
+                src="https://cdn.glitch.global/67c5b1dc-7259-4742-90b5-0cb73541528b/Tekengebied%201%20kopie%208.png?v=1744877723247"
+                alt=""
+              />
+              <img
+                class="marquee-img"
+                src="https://cdn.glitch.global/67c5b1dc-7259-4742-90b5-0cb73541528b/Tekengebied%201%20kopie%204.png?v=1744877718546"
+                alt=""
+              />
+              <img
+                class="marquee-img"
+                src="https://cdn.glitch.global/67c5b1dc-7259-4742-90b5-0cb73541528b/Tekengebied%201%20kopie%206.png?v=1744877720983"
+                alt=""
+              />
+              <img
+                class="marquee-img"
+                src="https://cdn.glitch.global/67c5b1dc-7259-4742-90b5-0cb73541528b/Tekengebied%201%20kopie%203.png?v=1744877717048"
+                alt=""
+              />
+
+              <!-- Dubbel voor vloeiende loop -->
+              <img
+                class="marquee-img"
+                src="https://cdn.glitch.global/67c5b1dc-7259-4742-90b5-0cb73541528b/Tekengebied%201%20kopie%2010.png?v=1744877726011"
+                alt=""
+              />
+              <img
+                class="marquee-img"
+                src="https://cdn.glitch.global/67c5b1dc-7259-4742-90b5-0cb73541528b/Tekengebied%201%20kopie%2011.png?v=1744877727817"
+                alt=""
+              />
+              <img
+                class="marquee-img"
+                src="https://cdn.glitch.global/67c5b1dc-7259-4742-90b5-0cb73541528b/Tekengebied%201%20kopie%208.png?v=1744877723247"
+                alt=""
+              />
+              <img
+                class="marquee-img"
+                src="https://cdn.glitch.global/67c5b1dc-7259-4742-90b5-0cb73541528b/Tekengebied%201%20kopie%204.png?v=1744877718546"
+                alt=""
+              />
+              <img
+                class="marquee-img"
+                src="https://cdn.glitch.global/67c5b1dc-7259-4742-90b5-0cb73541528b/Tekengebied%201%20kopie%206.png?v=1744877720983"
+                alt=""
+              />
+              <img
+                class="marquee-img"
+                src="https://cdn.glitch.global/67c5b1dc-7259-4742-90b5-0cb73541528b/Tekengebied%201%20kopie%203.png?v=1744877717048"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
+
+<script>
+  document.querySelectorAll(".slideshow-container").forEach((container) => {
+    const slides = container.querySelectorAll(".slide");
+    const dotsContainer = container.querySelector(".dots-container");
+    const prevBtn = container.querySelector(".prev");
+    const nextBtn = container.querySelector(".next");
+    let index = 0;
+    let interval;
+
+    // Als er dots zijn, pak ze op
+    let dots = [];
+    if (dotsContainer) {
+      dots = Array.from(dotsContainer.querySelectorAll(".dot"));
+    }
+
+    function showSlide(i) {
+      slides.forEach((slide, idx) => {
+        slide.classList.toggle("active", idx === i);
+      });
+
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle("active", idx === i);
+      });
+
+      index = i;
+    }
+
+    function nextSlide() {
+      index = (index + 1) % slides.length;
+      showSlide(index);
+    }
+
+    function prevSlide() {
+      index = (index - 1 + slides.length) % slides.length;
+      showSlide(index);
+    }
+
+    function resetInterval() {
+      clearInterval(interval);
+      interval = setInterval(nextSlide, 4000);
+    }
+
+    // Init
+    showSlide(index);
+    interval = setInterval(nextSlide, 4000);
+
+    // Knoppen
+    if (nextBtn)
+      nextBtn.addEventListener("click", () => {
+        nextSlide();
+        resetInterval();
+      });
+
+    if (prevBtn)
+      prevBtn.addEventListener("click", () => {
+        prevSlide();
+        resetInterval();
+      });
+
+    // Dots aanklikbaar maken
+    dots.forEach((dot, i) => {
+      dot.addEventListener("click", () => {
+        showSlide(i);
+        resetInterval();
+      });
+    });
+  });
+</script>
+
+<script
+  type="module"
+  src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
+></script>
+
+<script
+  nomodule
+  src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"
+></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const parallaxImages = document.querySelectorAll(".parallax-x-img");
+
+    function updateParallax() {
+      parallaxImages.forEach((img) => {
+        const container = img.closest(".parallax-container");
+        const containerRect = container.getBoundingClientRect();
+
+        if (
+          containerRect.top < window.innerHeight &&
+          containerRect.bottom > 0
+        ) {
+          const scrollFraction = containerRect.top / window.innerHeight;
+          const translateAmount = scrollFraction * -50; // Pas dit aan voor intensiteit
+          img.style.transform = `rotate(90deg) translateY(${translateAmount}px)`;
+        } else {
+          img.style.transform = "rotate(90deg)";
+        }
+      });
+    }
+
+    updateParallax();
+
+    window.addEventListener("scroll", updateParallax);
+  });
+</script>
+
+<script>
+  window.addEventListener("scroll", () => {
+    const img = document.querySelector(".parallax-x-img");
+    if (img) {
+      const scrollY = window.scrollY;
+      const offset = scrollY * 0.2; // Pas deze waarde aan voor snelheid
+      img.style.transform = `translateX(${-offset}px)`;
+    }
+  });
+</script>
+
+<script>
+  const marqueeWrapper = document.querySelector(".marquee-wrapper");
+  const marqueeTrack = document.querySelector(".marquee-track");
+
+  let speed = 1.5; // standaard snelheid
+  let position = 0;
+  let hovering = false;
+
+  function animate() {
+    position += speed;
+    marqueeTrack.style.transform = `translateX(${-position}px)`;
+
+    // Reset positie als het einde bereikt is (loop-effect)
+    if (position >= marqueeTrack.scrollWidth / 2) {
+      position = 0;
+    }
+
+    requestAnimationFrame(animate);
+  }
+
+  marqueeWrapper.addEventListener("mouseenter", () => {
+    speed = 0.4; // langzamer bij hover
+  });
+
+  marqueeWrapper.addEventListener("mouseleave", () => {
+    speed = 1.5; // terug naar normaal
+  });
+
+  animate(); // start de animatie
+</script>

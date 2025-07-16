@@ -1,0 +1,553 @@
+/* Variabelen voor kleuren en afmetingen */
+:root {
+  --color-text: black;
+  --color-bg: white;
+  --color-link-hover: underline;
+  --border-radius: 12px;
+  --border-radius-mobile: 6px;
+}
+
+/* Algemene stijlen */
+/* Scrollbar verbergen, maar scrollen blijft mogelijk */
+html,
+body {
+  overflow-y: scroll; /* Let op: overflow: scroll zorgt voor altijd scrollbar */
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+::-webkit-scrollbar {
+  display: none; /* Verbergt scrollbar in Webkit browsers */
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--color-bg);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Navigatie */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+a:hover {
+  text-decoration: var(--color-link-hover);
+}
+
+/* Section */
+section {
+  padding: 40px 20px;
+}
+
+/* Project grid */
+.project-grid {
+  column-count: 4;
+  column-gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Project item */
+.project {
+  break-inside: avoid;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+}
+
+/* Afbeeldingen in project */
+.project img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--border-radius);
+  box-shadow: none;
+}
+
+/* Hover tekst boven project afbeelding */
+.project h3 {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  margin: 0;
+  padding: 10px 15px;
+  color: white;
+  font-size: 0.6rem;
+  opacity: 0;
+  pointer-events: none;
+  border-radius: var(--border-radius);
+  max-width: calc(100% - 12px);
+  box-sizing: border-box;
+  white-space: normal;
+  background: linear-gradient(145deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
+  transition: opacity 0.5s ease;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.project:hover h3 {
+  opacity: 1;
+}
+
+/* Image wrapper */
+.image-wrapper,
+.image-wrapper-2 {
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+}
+
+.image-wrapper {
+  aspect-ratio: 1 / 0.8;
+}
+
+.image-wrapper-2 {
+  aspect-ratio: 1 / 1.4;
+}
+
+.image-wrapper img,
+.image-wrapper-2 img {
+  width: 105%;
+  height: 105%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s ease;
+  border-radius: var(--border-radius);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Contact sectie */
+#contact {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+#contact h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#contact p {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+#contact p strong {
+  font-weight: bold;
+}
+
+/* About grid */
+.about-grid {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 55px 20px;
+}
+
+.about-col * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.about-col h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+/* Project page */
+#project-page .project-layout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 80px;
+  column-gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+#project-page .project-item {
+  overflow: hidden;
+  border-radius: var(--border-radius);
+}
+
+#project-page .project-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+}
+
+#project-page .project-item.span-3 {
+  grid-column: span 3;
+}
+
+#project-page .project-item.span-2,
+#project-page .project-item.span-2-model {
+  grid-column: span 2;
+}
+
+#project-page .project-item.span-2-model {
+  aspect-ratio: 1 / 1;
+}
+
+#project-page .project-item.span-1 {
+  grid-column: span 1;
+}
+
+#project-page .project-text h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+#project-page .project-text p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Parallax container */
+.parallax-container {
+  grid-column: span 3;
+  position: relative;
+  aspect-ratio: 3 / 1;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+}
+
+.parallax-x-img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  height: 400%;
+  width: auto;
+  margin: auto 0;
+  transform: rotate(90deg);
+  transition: transform 0.1s ease-out;
+  will-change: transform;
+}
+
+/* Slideshow container */
+.project-layout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.slideshow-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  border-radius: var(--border-radius);
+}
+
+.slideshow-container.slideshow-3-cols {
+  grid-column: span 3;
+}
+
+.slideshow-container.slideshow-2-cols,
+.slideshow-container.slideshow-2-cols2 {
+  grid-column: span 2;
+}
+
+.slideshow-container.slideshow-1-cols {
+  grid-column: span 1;
+}
+
+/* Slideshow wrapper */
+.slideshow-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--border-radius);
+}
+
+.slide {
+  display: none;
+}
+
+.slide.active {
+  display: block;
+}
+
+.slideshow-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+}
+
+/* Dots */
+.dots-container {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  text-align: center;
+}
+
+.dot {
+  height: 5px;
+  width: 5px;
+  margin: 0 4px;
+  background-color: white;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.3s, transform 0.3s;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: black;
+  transform: scale(1.1);
+}
+
+/* Navigatieknoppen */
+button {
+  position: absolute;
+  top: 50%;
+  background-color: transparent;
+  color: black;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+button.prev {
+  left: 10px;
+}
+
+button.next {
+  right: 10px;
+}
+
+/* Slide tekst */
+.slide-text-container {
+  color: black;
+  font-size: 0.8rem;
+  padding: 10px;
+  text-align: center;
+  position: absolute;
+  bottom: 40px;
+  width: 100%;
+}
+
+/* Model-viewer */
+model-viewer {
+  grid-column: span 2;
+  width: 100%;
+  height: 0;
+  position: relative;
+  padding-bottom: 100%;
+  background-color: var(--color-bg);
+  border-radius: var(--border-radius);
+}
+
+/* Bar container */
+.bar-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.bar-label {
+  flex: 1;
+}
+
+.bar {
+  display: flex;
+  gap: 2px;
+}
+
+.bar div {
+  width: 10px;
+  height: 10px;
+  background: lightgray;
+  border-radius: 2px;
+}
+
+.bar div.filled {
+  background: black;
+}
+
+/* Marquee */
+.marquee-wrapper {
+  overflow: hidden;
+  position: relative;
+  height: 400px;
+  grid-column: span 3;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  height: 100%;
+  will-change: transform;
+}
+
+.marquee-img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  /* Header en grids */
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-layout {
+    grid-template-columns: 1fr;
+    row-gap: 40px;
+  }
+
+  /* Project grid aangepast */
+  .project-grid {
+    column-count: 2;
+    column-gap: 12px;
+    padding: 10px;
+  }
+
+  /* Image wrappers en projecten afgerond */
+  .image-wrapper,
+  .image-wrapper-2,
+  .project {
+    border-radius: var(--border-radius-mobile);
+  }
+
+  .image-wrapper img,
+  .image-wrapper-2 img {
+    border-radius: var(--border-radius-mobile);
+  }
+
+  .project h3 {
+    border-radius: var(--border-radius-mobile);
+    padding: 6px 6px;
+    max-width: calc(100% - 6px);
+  }
+
+  /* Slideshow */
+  #project-page .project-layout {
+    display: block;
+  }
+
+  #project-page .project-item.span-1,
+  #project-page .project-item.span-2,
+  #project-page .project-item.span-3,
+  #project-page .project-item.span-2-model {
+    grid-column: span 1;
+    margin-bottom: 3rem;
+  }
+
+  .slideshow-container,
+  .slideshow-container.slideshow-2-cols,
+  .slideshow-container.slideshow-2-cols2,
+  .slideshow-container.slideshow-1-cols {
+    grid-column: span 1;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 3rem;
+  }
+
+  .slide {
+    display: none;
+    width: 100%;
+  }
+
+  .slide.active {
+    display: block;
+  }
+
+  .slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .slide-text-container {
+    font-size: 14px;
+    padding: 0.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .parallax-container {
+      position: relative;
+      width: 100%;
+      height: 50vh; /* Of bijvoorbeeld 300px */
+      overflow: hidden;
+      margin: 20px 0; /* Zorg voor ruimte boven en onder */
+      border-radius: var(--border-radius-mobile);
+    }
+
+    .parallax-x-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 250%;
+      width: auto;
+      transform: none; /* Geen rotatie op mobiel */
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  /* Model viewer fix */
+  model-viewer {
+    grid-column: span 1;
+    padding-bottom: 100%;
+  }
+
+  /* Marquee hoogte aanpassen */
+  .marquee-wrapper {
+    height: 300px;
+  }
+}
