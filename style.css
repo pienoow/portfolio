@@ -90,6 +90,7 @@ section {
 }
 
 .project::before {
+  pointer-events: none;
   content: "";
   position: absolute;
   inset: 0;
@@ -105,8 +106,8 @@ section {
 
 .project h3 {
   position: absolute;
-  top: 12px; /* ruimte vanaf bovenkant */
-  left: 12px; /* ruimte vanaf linkerkant */
+  top: 10px; /* ruimte vanaf bovenkant */
+  left: 2px; /* ruimte vanaf linkerkant */
   transform: none; /* geen translate meer nodig */
   margin: 0;
   padding: 8px 16px;
