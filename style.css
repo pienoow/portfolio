@@ -83,35 +83,67 @@ section {
   box-shadow: none;
 }
 
+.project {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+}
+
+.project::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.project:hover::before {
+  opacity: 1;
+}
+
 .project h3 {
   position: absolute;
-  top: 12px;
-  left: 12px;
+  top: 12px; /* ruimte vanaf bovenkant */
+  left: 12px; /* ruimte vanaf linkerkant */
+  transform: none; /* geen translate meer nodig */
   margin: 0;
-  padding: 10px 15px;
+  padding: 8px 16px;
   color: black;
   font-size: 1.2rem;
+  text-align: left;
   opacity: 0;
   pointer-events: none;
-  text-align: left;
   border-radius: var(--border-radius);
+  background-color: transparent;
+  transition: opacity 0.4s ease 0.2s, opacity 0.1s ease 0.1s;
+  z-index: 2;
+
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 8px;
-}
-
-.project:hover {
-  background-color: white;
-}
-
-.project:hover img {
-  opacity: 0;
-  transition: opacity 0.2s ease;
+  align-items: flex-start; /* naar links uitlijnen */
+  gap: 16px;
 }
 
 .project:hover h3 {
   opacity: 1;
+  pointer-events: auto;
+}
+
+/* Pijl */
+.project h3 .arrow {
+  width: 22px;
+  height: auto;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: transform 0.2s ease 0.1s, opacity 0.1s ease 0.1s;
+  align-self: flex-start; /* pijl links onder tekst */
+}
+
+.project:hover h3 .arrow {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 /* Image wrapper */
