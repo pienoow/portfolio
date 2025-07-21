@@ -14,24 +14,31 @@
         location.hostname === "127.0.0.1" ||
         location.protocol === "file:";
 
-      // Bepaal of je in een submap zit (zoals /projects/)
-      const pathParts = location.pathname.split("/").filter(Boolean);
-      const isInSubFolder = pathParts.includes("projects");
+      const pathParts = window.location.pathname.split("/").filter(Boolean);
+      const depth = pathParts.length;
 
-      // Dynamisch basispad
-      const basePath = isLocal ? (isInSubFolder ? "../" : "./") : "/portfolio/";
+      // Repo-naam (gebruik exact zoals op GitHub Pages)
+      const repo = "/portfolio/";
 
-      // Dynamische stylesheet
+      // Dynamisch basePad bepalen
+      const basePath = isLocal ? "../".repeat(depth - 1) : repo;
+
+      // Voeg stylesheet toe
       const link = document.createElement("link");
       link.rel = "stylesheet";
-      link.href = isLocal ? basePath + "style.css" : "/portfolio/style.css";
+      link.href = basePath + "style.css";
       document.head.appendChild(link);
 
       // Navigatielinks aanpassen
       document.addEventListener("DOMContentLoaded", () => {
-        document.querySelector("header h1 a").href = basePath + "index.html";
-        document.querySelectorAll("nav a")[0].href = basePath + "over.html";
-        document.querySelectorAll("nav a")[1].href = basePath + "contact.html";
+        const homeLink = document.querySelector("header h1 a");
+        const navLinks = document.querySelectorAll("nav a");
+
+        if (homeLink) homeLink.href = basePath + "index.html";
+        if (navLinks.length >= 2) {
+          navLinks[0].href = basePath + "over/";
+          navLinks[1].href = basePath + "contact/";
+        }
       });
     </script>
   </head>
@@ -41,8 +48,8 @@
       <h1><a href="/index.html">thijs de boer</a></h1>
       <nav>
         <ul>
-          <li><a href="/over.html">over mij</a></li>
-          <li><a href="/contact.html">contact</a></li>
+          <li><a href="/over/">over mij</a></li>
+          <li><a href="/contact/">contact</a></li>
         </ul>
       </nav>
     </header>
@@ -50,24 +57,54 @@
     <main>
       <section id="project">
         <div class="project-layout">
+          <div class="project-item span-2 project-text intro-container">
+            <div class="project-title">Casper's stamp rally</div>
+            <div class="title-description">
+              <strong>
+                Voor de verjaardag van een vriend van me bedacht ik zijn eigen
+                stamp rally te maken voor plekken waar we met de vriendengroep
+                zijn geweest of vaak kwamen. Ik heb hiervoor 12 verschillende
+                stempels ontworpen, en deze uitgeprint als stickers.
+              </strong>
+            </div>
+          </div>
+          <div class="project-item span-1 project-text intro-info">
+            <p>
+              <strong>Locatie:</strong><br />
+              Kyoto<br /><br />
+              <strong>Periode:</strong><br />
+              2024<br />
+            </p>
+          </div>
+
+          <div class="marquee-wrapper">
+            <div class="marquee-track">
+              <img class="marquee-img" src="img/kenninji.png" alt="" />
+              <img class="marquee-img" src="img/marikoji.png" alt="" />
+              <img class="marquee-img" src="img/matsuya.png" alt="" />
+              <img class="marquee-img" src="img/okinawa.png" alt="" />
+              <img class="marquee-img" src="img/stamps.png" alt="" />
+              <img class="marquee-img" src="img/studio.png" alt="" />
+
+              <!-- Dubbel voor vloeiende loop -->
+              <img class="marquee-img" src="img/kenninji.png" alt="" />
+              <img class="marquee-img" src="img/marikoji.png" alt="" />
+              <img class="marquee-img" src="img/matsuya.png" alt="" />
+              <img class="marquee-img" src="img/okinawa.png" alt="" />
+              <img class="marquee-img" src="img/stamps.png" alt="" />
+              <img class="marquee-img" src="img/studio.png" alt="" />
+            </div>
+          </div>
+
           <div class="slideshow-container slideshow-1-cols">
             <div class="slide active">
-              <img
-                src="https://cdn.glitch.global/67c5b1dc-7259-4742-90b5-0cb73541528b/Tekengebied%201.png?v=1744877730179"
-                alt="Slide 1"
-              />
+              <img src="img/coffee.png" alt="Slide 1" />
             </div>
             <div class="slide">
-              <img
-                src="https://cdn.glitch.global/67c5b1dc-7259-4742-90b5-0cb73541528b/Tekengebied%201%20kopie%207.png?v=1744877722111"
-                alt="Slide 2"
-              />
+              <img src="img/shimanami.png" alt="Slide 2" />
             </div>
             <div class="slide">
-              <img
-                src="https://cdn.glitch.global/67c5b1dc-7259-4742-90b5-0cb73541528b/Tekengebied%201%20kopie%205.png?v=1744877719716"
-                alt="Slide 2"
-              />
+              <img src="img/delta.png" alt="Slide 2" />
             </div>
             <!-- Navigatiepuntjes -->
             <div class="dots-container"></div>
@@ -75,22 +112,13 @@
 
           <div class="slideshow-container slideshow-1-cols">
             <div class="slide active">
-              <img
-                src="https://cdn.glitch.global/67c5b1dc-7259-4742-90b5-0cb73541528b/Tekengebied%201%20kopie%202.png?v=1744877716080"
-                alt="Slide 1"
-              />
+              <img src="img/hakuba.png" alt="Slide 1" />
             </div>
             <div class="slide">
-              <img
-                src="https://cdn.glitch.global/67c5b1dc-7259-4742-90b5-0cb73541528b/Tekengebied%201%20kopie.png?v=1744877729069"
-                alt="Slide 2"
-              />
+              <img src="img/kamogawa.png" alt="Slide 2" />
             </div>
             <div class="slide">
-              <img
-                src="https://cdn.glitch.global/67c5b1dc-7259-4742-90b5-0cb73541528b/Tekengebied%201%20kopie%209.png?v=1744877725352"
-                alt="Slide 2"
-              />
+              <img src="img/kazubar.png" alt="Slide 2" />
             </div>
             <!-- Navigatiepuntjes -->
             <div class="dots-container"></div>
@@ -133,77 +161,7 @@
             </p>
           </div>
           <div class="project-item span-2">
-            <img
-              src="https://cdn.glitch.global/67c5b1dc-7259-4742-90b5-0cb73541528b/Stamps%20booklet.png?v=1744876210903"
-              alt="Project image 5"
-            />
-          </div>
-
-          <div class="marquee-wrapper">
-            <div class="marquee-track">
-              <img
-                class="marquee-img"
-                src="https://cdn.glitch.global/67c5b1dc-7259-4742-90b5-0cb73541528b/Tekengebied%201%20kopie%2010.png?v=1744877726011"
-                alt=""
-              />
-              <img
-                class="marquee-img"
-                src="https://cdn.glitch.global/67c5b1dc-7259-4742-90b5-0cb73541528b/Tekengebied%201%20kopie%2011.png?v=1744877727817"
-                alt=""
-              />
-              <img
-                class="marquee-img"
-                src="https://cdn.glitch.global/67c5b1dc-7259-4742-90b5-0cb73541528b/Tekengebied%201%20kopie%208.png?v=1744877723247"
-                alt=""
-              />
-              <img
-                class="marquee-img"
-                src="https://cdn.glitch.global/67c5b1dc-7259-4742-90b5-0cb73541528b/Tekengebied%201%20kopie%204.png?v=1744877718546"
-                alt=""
-              />
-              <img
-                class="marquee-img"
-                src="https://cdn.glitch.global/67c5b1dc-7259-4742-90b5-0cb73541528b/Tekengebied%201%20kopie%206.png?v=1744877720983"
-                alt=""
-              />
-              <img
-                class="marquee-img"
-                src="https://cdn.glitch.global/67c5b1dc-7259-4742-90b5-0cb73541528b/Tekengebied%201%20kopie%203.png?v=1744877717048"
-                alt=""
-              />
-
-              <!-- Dubbel voor vloeiende loop -->
-              <img
-                class="marquee-img"
-                src="https://cdn.glitch.global/67c5b1dc-7259-4742-90b5-0cb73541528b/Tekengebied%201%20kopie%2010.png?v=1744877726011"
-                alt=""
-              />
-              <img
-                class="marquee-img"
-                src="https://cdn.glitch.global/67c5b1dc-7259-4742-90b5-0cb73541528b/Tekengebied%201%20kopie%2011.png?v=1744877727817"
-                alt=""
-              />
-              <img
-                class="marquee-img"
-                src="https://cdn.glitch.global/67c5b1dc-7259-4742-90b5-0cb73541528b/Tekengebied%201%20kopie%208.png?v=1744877723247"
-                alt=""
-              />
-              <img
-                class="marquee-img"
-                src="https://cdn.glitch.global/67c5b1dc-7259-4742-90b5-0cb73541528b/Tekengebied%201%20kopie%204.png?v=1744877718546"
-                alt=""
-              />
-              <img
-                class="marquee-img"
-                src="https://cdn.glitch.global/67c5b1dc-7259-4742-90b5-0cb73541528b/Tekengebied%201%20kopie%206.png?v=1744877720983"
-                alt=""
-              />
-              <img
-                class="marquee-img"
-                src="https://cdn.glitch.global/67c5b1dc-7259-4742-90b5-0cb73541528b/Tekengebied%201%20kopie%203.png?v=1744877717048"
-                alt=""
-              />
-            </div>
+            <img src="img/notitie.png" alt="Project image 5" />
           </div>
         </div>
       </section>
