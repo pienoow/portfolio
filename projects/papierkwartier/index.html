@@ -9,50 +9,19 @@
     <!-- Dynamische stylesheet afhankelijk van omgeving -->
 
     <script>
-      // Bereken basePath automatisch
-      const pathParts = window.location.pathname.split("/").filter(Boolean);
-      const depth = pathParts.length;
-      const isLocal =
-        location.hostname === "localhost" || location.protocol === "file:";
-      const repo = "/portfolio/";
-      const basePath = isLocal ? "../".repeat(depth - 1) : "/";
-
-      // Voeg de stylesheet toe
-      const link = document.createElement("link");
-      link.rel = "stylesheet";
-      link.href = basePath + "style.css";
-      document.head.appendChild(link);
-
-      // Navigatielinks aanpassen nadat DOM geladen is
-      document.addEventListener("DOMContentLoaded", () => {
-        document.querySelector("header h1 a").href = basePath + "index.html";
-        document.querySelectorAll("nav a")[0].href = basePath + "over/";
-        document.querySelectorAll("nav a")[1].href = basePath + "contact/";
-      });
-    </script>
-
-    <script>
-      // Check of we lokaal draaien
       const isLocal =
         location.hostname === "localhost" ||
         location.hostname === "127.0.0.1" ||
         location.protocol === "file:";
 
-      // Repo-naam voor GitHub Pages
-      const repo = "/portfolio/";
-
-      // Huidig pad analyseren
       const pathParts = window.location.pathname.split("/").filter(Boolean);
       const depth = pathParts.length;
 
-      // Base path bepalen
-      let basePath;
-      if (isLocal) {
-        basePath = "../".repeat(depth - 1);
-      } else {
-        // Voor GitHub Pages: gebruik altijd de repo als basis
-        basePath = repo;
-      }
+      // Repo-naam (gebruik exact zoals op GitHub Pages)
+      const repo = "/portfolio/";
+
+      // Dynamisch basePad bepalen
+      const basePath = isLocal ? "../".repeat(depth - 1) : repo;
 
       // Voeg stylesheet toe
       const link = document.createElement("link");
@@ -62,8 +31,8 @@
 
       // Navigatielinks aanpassen
       document.addEventListener("DOMContentLoaded", () => {
-        const navLinks = document.querySelectorAll("nav a");
         const homeLink = document.querySelector("header h1 a");
+        const navLinks = document.querySelectorAll("nav a");
 
         if (homeLink) homeLink.href = basePath + "index.html";
         if (navLinks.length >= 2) {
