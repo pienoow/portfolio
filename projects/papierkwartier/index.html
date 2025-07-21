@@ -27,6 +27,14 @@
       const pathParts = window.location.pathname.split("/").filter(Boolean);
       const depth = pathParts.length;
 
+      // Repo-naam (voor GitHub Pages)
+      const repo = "/portfolio/";
+
+      // Bepaal het juiste basePath
+      const basePath = isLocal
+        ? "../".repeat(depth - 1)
+        : "/" + pathParts[0] + "/"; // haalt automatisch "/portfolio/"
+
       // Voeg de stylesheet toe
       const link = document.createElement("link");
       link.rel = "stylesheet";
