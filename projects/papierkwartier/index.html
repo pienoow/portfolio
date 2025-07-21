@@ -23,17 +23,18 @@
     </script>
 
     <script>
+      // Check of je lokaal werkt (Live Server of file://)
+      const isLocal =
+        location.hostname === "localhost" ||
+        location.hostname === "127.0.0.1" ||
+        location.protocol === "file:";
+
       // Verwerk het pad
       const pathParts = window.location.pathname.split("/").filter(Boolean);
       const depth = pathParts.length;
 
       // Repo-naam (voor GitHub Pages)
       const repo = "/portfolio/";
-
-      // Bepaal het juiste basePath
-      const basePath = isLocal
-        ? "../".repeat(depth - 1)
-        : "/" + pathParts[0] + "/"; // haalt automatisch "/portfolio/"
 
       // Voeg de stylesheet toe
       const link = document.createElement("link");
