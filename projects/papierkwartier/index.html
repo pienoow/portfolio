@@ -16,6 +16,9 @@
         location.protocol === "file:";
       const repo = "/portfolio/"; // Vervang door jouw repo-naam
       const basePath = isLocal ? "../".repeat(depth - 1) : "/";
+      // Verwerk het pad
+      const pathParts = window.location.pathname.split("/").filter(Boolean);
+      const depth = pathParts.length;
 
       // Voeg de stylesheet toe
       const link = document.createElement("link");
