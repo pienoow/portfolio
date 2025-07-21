@@ -13,6 +13,7 @@
   const pathParts = window.location.pathname.split("/").filter(Boolean);
   const depth = pathParts.length;
   const isLocal = location.hostname === "localhost" || location.protocol === "file:";
+   const repo = "/portfolio/"; // Vervang door jouw repo-naam
   const basePath = isLocal ? "../".repeat(depth - 1) : "/";
 // iets
   // Voeg de stylesheet toe
@@ -20,6 +21,13 @@
   link.rel = "stylesheet";
   link.href = basePath + "style.css";
   document.head.appendChild(link);
+
+   // Navigatielinks aanpassen nadat DOM geladen is
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelector("header h1 a").href = basePath + "index.html";
+    document.querySelectorAll("nav a")[0].href = basePath + "over/";
+    document.querySelectorAll("nav a")[1].href = basePath + "contact/";
+  });
 </script>
 
     </script>
