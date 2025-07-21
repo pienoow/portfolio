@@ -9,30 +9,19 @@
     <!-- Dynamische stylesheet afhankelijk van omgeving -->
 
     <script>
-      const isLocal =
-        location.hostname === "localhost" ||
-        location.hostname === "127.0.0.1" ||
-        location.protocol === "file:";
+  // Bereken basePath automatisch
+  const pathParts = window.location.pathname.split("/").filter(Boolean);
+  const depth = pathParts.length;
+  const isLocal = location.hostname === "localhost" || location.protocol === "file:";
+  const basePath = isLocal ? "../".repeat(depth - 1) : "/";
 
-      // Bepaal of je in een submap zit (zoals /projects/)
-      const pathParts = location.pathname.split("/").filter(Boolean);
-      const isInSubFolder = pathParts.includes("projects");
+  // Voeg de stylesheet toe
+  const link = document.createElement("link");
+  link.rel = "stylesheet";
+  link.href = basePath + "style.css";
+  document.head.appendChild(link);
+</script>
 
-      // Dynamisch basispad
-      const basePath = isLocal ? (isInSubFolder ? "../" : "./") : "/portfolio/";
-
-      // Dynamische stylesheet
-      const link = document.createElement("link");
-      link.rel = "stylesheet";
-      link.href = isLocal ? basePath + "style.css" : "/portfolio/style.css";
-      document.head.appendChild(link);
-
-      // Navigatielinks aanpassen
-      document.addEventListener("DOMContentLoaded", () => {
-        document.querySelector("header h1 a").href = basePath + "index.html";
-        document.querySelectorAll("nav a")[0].href = basePath + "over.html";
-        document.querySelectorAll("nav a")[1].href = basePath + "contact.html";
-      });
     </script>
   </head>
 
